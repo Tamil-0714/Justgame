@@ -44,6 +44,20 @@ app.get("/", (req, res) => {
   }
   res.render("index");
 });
+app.get("/tic-tac-toe", (req, res) => {
+  console.log("this is session ", req.session);
+  if (!req.session.user) {
+    return res.redirect("/login");
+  }
+  res.render("tictactoe");
+});
+app.get("/memory-game", (req, res) => {
+  console.log("this is session ", req.session);
+  if (!req.session.user) {
+    return res.redirect("/login");
+  }
+  res.render("memory");
+});
 
 // Logout route
 app.get("/logout", (req, res) => {
